@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.3'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'fakezin.dev'
+version = '0.0.1-SNAPSHOT'
+description = 'budgeting1'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.spring.io/milestone' }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // Gerenciador de versões do Spring AI
+    implementation platform("org.springframework.ai:spring-ai-bom:1.0.0-M6")
+
+    // Starter padrão da OpenAI (usado para conectar ao Gemini AI Studio)
+    implementation 'org.springframework.ai:spring-ai-openai-spring-boot-starter'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
