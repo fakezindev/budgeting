@@ -1,4 +1,4 @@
-package fakezin.dev.budgeting1;
+package fakezin.dev.budgeting;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;

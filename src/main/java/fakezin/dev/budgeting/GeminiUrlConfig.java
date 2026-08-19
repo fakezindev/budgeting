@@ -1,4 +1,4 @@
-package fakezin.dev.budgeting1;
+package fakezin.dev.budgeting;
 
 import org.springframework.boot.web.client.RestClientCustomizer;
 import org.springframework.context.annotation.Bean;
