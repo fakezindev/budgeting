@@ -14,8 +14,8 @@ public class GeminiUrlConfig {
     public RestClientCustomizer geminiRestClientCustomizer() {
         return restClientBuilder -> restClientBuilder.requestInterceptor((request, body, execution) -> {
             URI uri = request.getURI();
-            // Remove o /v1 duplicado exigido pela Google
-            if (uri.toString().contains("/openai/v1/")) {
+            // Remove o /v1 duplicado exigido pela Google apenas para URLs do Google Gemini
+            if (uri.getHost() != null && uri.getHost().contains("googleapis.com") && uri.toString().contains("/openai/v1/")) {
                 URI adjustedUri = URI.create(uri.toString().replace("/openai/v1/", "/openai/"));
                 return execution.execute(new HttpRequestWrapper(request) {
                     @Override
