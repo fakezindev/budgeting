@@ -1,37 +1,141 @@
-HELP.md
-.gradle
+# ===================================================================
+# Build & Dependency Directories (Gradle & Java)
+# ===================================================================
+.gradle/
 build/
+out/
+bin/
+target/
+HELP.md
+
+# Preserve Gradle Wrapper
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+!**/src/main/**/out/
+!**/src/test/**/out/
 
-### STS ###
+# ===================================================================
+# Environment & Sensitive Information (Secrets & Keys)
+# ===================================================================
+.env
+.env.*
+!.env.example
+*.env
+
+# Local / Secret Spring Profiles
+*-local.properties
+*-local.yml
+*-local.yaml
+*-secret.properties
+*-secret.yml
+*-secret.yaml
+application-local.*
+application-secret.*
+
+# API Keys, Certificates & Keystores
+*.pem
+*.key
+*.keystore
+*.jks
+*.p12
+*.crt
+*.der
+credentials.json
+secrets.json
+secret*.json
+google-services.json
+
+# ===================================================================
+# IDEs & Code Editors
+# ===================================================================
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+*.idea/
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Eclipse / Spring Tool Suite (STS)
 .apt_generated
 .classpath
 .factorypath
 .project
-.settings
+.settings/
 .springBeans
 .sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
-
-### NetBeans ###
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
-.vscode/
+# ===================================================================
+# Logs, Temp Files & Crash Dumps
+# ===================================================================
+*.log
+logs/
+log/
+temp/
+tmp/
+uploads/
+*.tmp
+*.temp
+hs_err_pid*
+replay_pid*
+
+# ===================================================================
+# Operating System Artifacts
+# ===================================================================
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon\r\r
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# ===================================================================
+# Media / Uploaded Audio & Video (Ignore local test/recording outputs)
+# ===================================================================
+# Ignore general audio/video files created locally, preserving test resources
+*.mp3
+*.wav
+*.m4a
+*.ogg
+*.flac
+*.aac
+!src/test/resources/**
+!src/main/resources/**
+
+# Docker local overrides
+docker-compose.override.yml
+docker-compose.override.yaml

@@ -14,7 +14,6 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api")
 public class TranscriptionController {
-
     private final OpenAiAudioTranscriptionModel openAiAudioTranscriptionModel;
 
     public TranscriptionController(OpenAiAudioTranscriptionModel openAiAudioTranscriptionModel) {
@@ -22,7 +21,7 @@ public class TranscriptionController {
     }
 
     @PostMapping(value = "/transcribe", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public String transcribe(@RequestParam("file") MultipartFile file) throws IOException {
+     String transcribe(@RequestParam("file") MultipartFile file) throws IOException {
         if (file.isEmpty()) {
             return "Erro: O arquivo de áudio enviado está vazio.";
         }
